@@ -1,0 +1,96 @@
+
+Html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Basic HTML Knowledge Test</h1>
+
+    <form id="quizForm">
+        <div class="question">
+            <p>1. What does HTML stand for?</p>
+            <label><input type="radio" name="q1" value="a"> Hyper Text Markup Language</label><br>
+            <label><input type="radio" name="q1" value="b"> Home Tool Markup Language</label><br>
+            <label><input type="radio" name="q1" value="c"> Hyperlinks and Text Markup Language</label>
+        </div>
+
+        <div class="question">
+            <p>2. Which HTML tag is used to create a hyperlink?</p>
+            <label><input type="radio" name="q2" value="a">&lt;link&gt;</label><br>
+            <label><input type="radio" name="q2" value="b">&lt;a&gt;</label><br>
+            <label><input type="radio" name="q2" value="c">&lt;href&gt;</label>
+        </div>
+
+        <div class="question">
+            <p>3. Which HTML element is used to display the largest heading?</p>
+            <label><input type="radio" name="q3" value="a">&lt;h6&gt;</label><br>
+            <label><input type="radio" name="q3" value="b">&lt;heading&gt;</label><br>
+            <label><input type="radio" name="q3" value="c">&lt;h1&gt;</label>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function checkAnswers() {
+            // Correct answers
+            const answers = { q1: "a", q2: "b", q3: "c" };
+            let score = 0;
+            let total = Object.keys(answers).length;
+
+            for (let key in answers) {
+                let selected = document.querySelector(`input[name="${key}"]:checked`);
+                if (selected && selected.value === answers[key]) {
+                    score++;
+                }
+            }
+
+            document.getElementById("result").textContent = 
+                `You scored ${score} out of ${total}.`;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
